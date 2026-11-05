@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local backups - do not commit
+*.bak
+*.before-*
+*.backup-*
+/logo-image-backups/
+
+# Local navigation troubleshooting notes
+/NAVIGATION-FIX-NOTES.txt
