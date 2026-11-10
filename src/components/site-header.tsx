@@ -1,0 +1,7 @@
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
+const links=[{label:"Platform",href:"/ecosystem"},{label:"Products",href:"/products"},{label:"Solutions",href:"/solutions"},{label:"Company",href:"/about"},{label:"Resources",href:"/resources"}];
+export function SiteHeader(){const[open,setOpen]=useState(false);return <header className="vq-header"><div className="vq-container vq-header-inner"><Link href="/" className="vq-brand" aria-label="Vorqara Technologies home"><Image src="/brand/vorqara-logo-horizontal-dark.svg" alt="Vorqara Technologies" width={470} height={108} priority/></Link><nav className="vq-nav" aria-label="Main navigation">{links.map(link=><Link href={link.href} key={link.href}>{link.label}</Link>)}</nav><Link href="/contact" className="vq-header-cta">Talk to Vorqara <ArrowUpRight size={16}/></Link><button className="vq-menu-toggle" aria-label={open?"Close menu":"Open menu"} aria-expanded={open} aria-controls={open ? "vq-mobile-nav" : undefined} onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button></div>{open&&<nav id="vq-mobile-nav" className="vq-mobile-nav" aria-label="Mobile navigation">{links.map(link=><Link href={link.href} key={link.href} onClick={()=>setOpen(false)}>{link.label}<ArrowUpRight size={16}/></Link>)}<Link href="/contact" onClick={()=>setOpen(false)}>Contact <ArrowUpRight size={16}/></Link></nav>}</header>}

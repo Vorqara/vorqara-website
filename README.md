@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vorqara Technologies Website
 
-## Getting Started
+The official Vorqara Technologies marketing website, built with Next.js App Router, React, TypeScript and Tailwind CSS. The production domain is `https://vorqara.com` and deployment is managed through Vercel with this GitHub repository as the source.
 
-First, run the development server:
+## Local development
+
+Requirements: Node.js 20.9 or newer and npm.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production validation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+```
 
-## Learn More
+Deployments should be made through the connected Vercel project after the changes have been reviewed and validated.
 
-To learn more about Next.js, take a look at the following resources:
+## Contact form configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The contact form sends enquiries using Resend. Add rate limiting or bot protection at the edge (for example, Vercel Firewall rules) before promoting the form broadly; the application route includes validation and a honeypot but does not implement a distributed rate limiter. Configure these environment variables in Vercel Project Settings → Environment Variables and in a local `.env.local` file for development:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `RESEND_API_KEY` — Resend API key.
+- `CONTACT_FROM_EMAIL` — verified sender address/domain configured in Resend.
+- `CONTACT_TO_EMAIL` — mailbox that should receive website enquiries.
 
-## Deploy on Vercel
+Never commit `.env.local`, API keys or credentials. If these values are not configured, the contact form returns a clear temporary-unavailable response and directs the visitor to `info@vorqara.com`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Website routes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` — Company homepage.
+- `/ecosystem` — Vorqara One platform vision.
+- `/products` — Product portfolio and status.
+- `/endpoint` — Vorqara Endpoint product and beta scope.
+- `/solutions` — Intended customer audiences and use cases.
+- `/about` — Company overview and principles.
+- `/partners` — Partnership enquiries.
+- `/security` — Security and trust principles.
+- `/resources` — Resource hub landing page.
+- `/contact` — Contact form.
+- `/privacy`, `/terms`, `/cookies` — Website legal notices.
+
+## Product-status accuracy
+
+Vorqara Endpoint is the first product and is in development, with January 2027 as the target beta period in the current product specification. Agent registration, authentication and heartbeat foundations are marked complete in that specification. Health, trust, security, compliance and risk engines, AI-assisted explanations, dashboard and essential remote actions are described as beta scope or development priorities; they must not be represented as generally available without implementation evidence.
+
+Vorqara Identity, Vorqara Privilege, Vorqara Detect, Vorqara Cloud, Vorqara Code and Vorqara AI are presented as planned product directions. Their scope and timing remain subject to validation.
+
+## Brand assets
+
+The existing official Vorqara logo and supplied brand assets are retained under `public/brand`. Do not redraw, recolour or stretch the logo without explicit brand approval.
+
+## Before production release
+
+1. Run lint and production build locally or in CI.
+2. Verify the contact form with the production Resend sender, API key and recipient.
+3. Confirm beta dates and capability statuses against the latest product build.
+4. Have the Privacy Notice and Terms reviewed against the actual legal entity, governing law, processing activities, retention periods and applicable requirements.
+5. Test mobile navigation, keyboard access, all routes, metadata, sitemap and 404 behaviour.
+6. Review Vercel deployment logs and production smoke tests after deployment.
