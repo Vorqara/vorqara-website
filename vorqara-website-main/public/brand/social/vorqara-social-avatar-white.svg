@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 1080 1080">
+
+<rect width="1080" height="1080" rx="205.2" fill="#FFFFFF"/><g transform="translate(226.80,226.80) scale(13.0500)">
+<defs>
+  <linearGradient id="vorqaraBlue" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#2563EB"/>
+    <stop offset="100%" stop-color="#1D4ED8"/>
+  </linearGradient>
+  <linearGradient id="vorqaraCyan" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#06B6D4"/>
+    <stop offset="100%" stop-color="#0891B2"/>
+  </linearGradient>
+</defs>
+<g>
+  <path d="M4 5 H17 L25 42 H12 Z" fill="url(#vorqaraBlue)"/>
+  <path d="M44 5 H31 L23 42 H36 Z" fill="url(#vorqaraCyan)"/>
+  <path d="M18.5 5 H29.5 L24 16.5 Z" fill="#2563EB"/>
+</g>
+</g>
+</svg>
