@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight, CheckCircle2, ShieldCheck, Laptop, Users, MessageSquare, Clock3, Globe2, LockKeyhole } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, ShieldCheck, Laptop, Users, Clock3, Globe2, LockKeyhole } from "lucide-react";
 import { pageMetadata } from "@/lib/metadata";
 import { PageFrame, PageIntro } from "@/components/site-shell";
 
